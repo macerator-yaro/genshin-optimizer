@@ -18,6 +18,42 @@
         "{workspaceRoot}/libs/gi/localization/assets/locales/en/**/*",
         "{workspaceRoot}/libs/sr/localization/assets/locales/en/**/*"
       ]
+    },
+    "merge-ja": {
+      "executor": "@genshin-optimizer/common/localization:merge-ja",
+      "outputs": [
+        "{projectRoot}/Translated",
+        "{workspaceRoot}/libs/sr/localization/assets/locales"
+      ],
+      "inputs": [
+        "default",
+        "{workspaceRoot}/libs/gi/localization/assets/locales/en/**/*",
+        "{workspaceRoot}/libs/sr/localization/assets/locales/en/**/*"
+      ]
+    },
+    "add-terms": {
+      "executor": "@genshin-optimizer/common/localization:add-terms",
+      "outputs": [
+        "{projectRoot}/Translated",
+        "{workspaceRoot}/libs/sr/localization/assets/locales"
+      ],
+      "inputs": [
+        "default",
+        "{workspaceRoot}/libs/gi/localization/assets/locales/en/**/*",
+        "{workspaceRoot}/libs/sr/localization/assets/locales/en/**/*"
+      ]
+    },
+    "split-ns": {
+      "executor": "@genshin-optimizer/common/localization:split-ns",
+      "outputs": [
+        "{projectRoot}/Translated",
+        "{workspaceRoot}/libs/sr/localization/assets/locales"
+      ],
+      "inputs": [
+        "default",
+        "{workspaceRoot}/libs/gi/localization/assets/locales/en/**/*",
+        "{workspaceRoot}/libs/sr/localization/assets/locales/en/**/*"
+      ]
     }
   },
   "tags": []

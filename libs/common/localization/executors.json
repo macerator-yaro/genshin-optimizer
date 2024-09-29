@@ -4,6 +4,21 @@
       "implementation": "./src/executors/gen-locale/executor",
       "schema": "./src/executors/gen-locale/schema.json",
       "description": "gen-locale executor"
+    },
+    "merge-ja": {
+      "implementation": "./src/executors/merge-ja/executor",
+      "schema": "./src/executors/merge-ja/schema.json",
+      "description": "merge-ja executor"
+    },
+    "add-terms": {
+      "implementation": "./src/executors/add-terms/executor",
+      "schema": "./src/executors/add-terms/schema.json",
+      "description": "add-terms executor"
+    },
+    "split-ns": {
+      "implementation": "./src/executors/split-ns/executor",
+      "schema": "./src/executors/split-ns/schema.json",
+      "description": "split-ns executor"
     }
   }
 }
