@@ -10,6 +10,7 @@ import { getLevelString } from '@genshin-optimizer/gi/util'
 import { dataObjForWeapon, uiInput as input } from '@genshin-optimizer/gi/wr'
 import { Box, Typography } from '@mui/material'
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { GetCalcDisplay, resolveInfo } from '../../util'
 import { WeaponNameTooltip } from './WeaponNameTooltip'
 
@@ -20,6 +21,7 @@ export function WeaponCardPico({ weaponId }: { weaponId: string }) {
 }
 
 export function WeaponCardPicoObj({ weapon }: { weapon: ICachedWeapon }) {
+  const { t } = useTranslation('ui')
   const weaponSheet = weapon?.key && getWeaponSheet(weapon.key)
   const UIData = useMemo(
     () =>
@@ -88,7 +90,9 @@ export function WeaponCardPicoObj({ weapon }: { weapon: ICachedWeapon }) {
             p: 0.25,
           }}
         >
-          <strong>R{weapon.refinement}</strong>
+          <strong>
+            {t('weapon.refineShort', { count: weapon.refinement })}
+          </strong>
         </Typography>
       )}
     </CardThemed>

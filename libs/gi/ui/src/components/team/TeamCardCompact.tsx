@@ -16,6 +16,7 @@ import InfoIcon from '@mui/icons-material/Info'
 import PersonIcon from '@mui/icons-material/Person'
 import { Box, CardActionArea, Grid, Skeleton, Typography } from '@mui/material'
 import { Suspense, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { dataContextObj } from '../../context'
 import { DataContext } from '../../context'
 import { useCharData } from '../../hooks'
@@ -138,12 +139,16 @@ function HoverCard({
   teamId: string
   teamCharId: string
 }) {
+  const { t } = useTranslation('build')
   const database = useDatabase()
   const character = useCharacter(characterKey)
 
   const { name } = useTeamChar(teamCharId)!
   const loadoutDatum = database.teams.getLoadoutDatum(teamId, teamCharId)!
-  const buildname = database.teams.getActiveBuildName(loadoutDatum)
+  const buildname = database.teams.getActiveBuildName(
+    loadoutDatum,
+    t`equippedBuild`
+  )
   const weapon = (() => {
     return database.teams.getLoadoutWeapon(loadoutDatum)
   })()

@@ -6,6 +6,7 @@ import {
   useDatabase,
 } from '@genshin-optimizer/gi/db-ui'
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { EquipBuildModal } from '.'
 import { BuildEditContext } from '../../context/BuildEditContext'
 
@@ -25,6 +26,7 @@ export function CompareBuildWrapper(props: WrapperProps) {
   return null
 }
 function TeamWrapper({ artIdOrSlot, weaponId, onHide, onEquip }: WrapperProps) {
+  const { t } = useTranslation('build')
   const database = useDatabase()
   const { teamCharId } = useContext(TeamCharacterContext)
   const buildToEdit = useContext(BuildEditContext)
@@ -48,7 +50,7 @@ function TeamWrapper({ artIdOrSlot, weaponId, onHide, onEquip }: WrapperProps) {
   const newWeaponId = weaponId ?? currentWeaponId
   return (
     <EquipBuildModal
-      currentName={database.builds.get(buildToEdit)?.name ?? 'Equipped'}
+      currentName={database.builds.get(buildToEdit)?.name ?? t`equipped`}
       newWeaponId={newWeaponId}
       currentWeaponId={currentWeaponId}
       newArtifactIds={newArtifactIds}
@@ -66,6 +68,7 @@ function CharacterWrapper({
   onHide,
   onEquip,
 }: WrapperProps) {
+  const { t } = useTranslation('build')
   const database = useDatabase()
   const {
     character: { equippedArtifacts, equippedWeapon },
@@ -84,7 +87,7 @@ function CharacterWrapper({
 
   return (
     <EquipBuildModal
-      currentName={'Equipped'}
+      currentName={t`equipped`}
       newWeaponId={newWeaponId}
       currentWeaponId={currentWeaponId}
       newArtifactIds={newArtifactIds}

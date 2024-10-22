@@ -105,22 +105,21 @@ export function ArtifactRedButtons({ artifactIds }: { artifactIds: string[] }) {
   }, [artifactIds, database])
 
   const unequipArtifacts = () =>
-    window.confirm(
-      `Are you sure you want to unequip ${numUnequip} artifacts currently equipped on characters?`
-    ) && artifactIds.map((id) => database.arts.set(id, { location: '' }))
+    window.confirm(t('buttonConfirm.unequip', { count: numUnequip })) &&
+    artifactIds.map((id) => database.arts.set(id, { location: '' }))
 
   const deleteArtifacts = () =>
-    window.confirm(`Are you sure you want to delete ${numDelete} artifacts?`) &&
+    window.confirm(t('buttonConfirm.delete', { count: numDelete })) &&
     artifactIds.map(
       (id) => !database.arts.get(id)?.lock && database.arts.remove(id)
     )
 
   const lockArtifacts = () =>
-    window.confirm(`Are you sure you want to lock ${numUnlock} artifacts?`) &&
+    window.confirm(t('buttonConfirm.lock', { count: numUnlock })) &&
     artifactIds.map((id) => database.arts.set(id, { lock: true }))
 
   const unlockArtifacts = () =>
-    window.confirm(`Are you sure you want to unlock ${numLock} artifacts?`) &&
+    window.confirm(t('buttonConfirm.unlock', { count: numLock })) &&
     artifactIds.map((id) => database.arts.set(id, { lock: false }))
 
   return (

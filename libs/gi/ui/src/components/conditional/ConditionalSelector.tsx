@@ -18,6 +18,7 @@ import type { ButtonProps, Palette } from '@mui/material'
 import { Button, ButtonGroup, Divider, MenuItem } from '@mui/material'
 import type { ReactNode } from 'react'
 import { useCallback, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { DataContext } from '../../context'
 
 interface ConditionalSelectorProps {
@@ -122,6 +123,7 @@ function ExclusiveConditionalSelector({
   conditional,
   disabled,
 }: ExclusiveConditionalSelectorProps) {
+  const { t } = useTranslation('ui')
   const { teamId, teamCharId } = useContext(TeamCharacterContext)
   const { data } = useContext(DataContext)
   const database = useDatabase()
@@ -157,7 +159,7 @@ function ExclusiveConditionalSelector({
   const badge = state ? (
     getStateBadge(state.name)
   ) : (
-    <SqBadge color="secondary">Not Active</SqBadge>
+    <SqBadge color="secondary">{t`conditional.notActive`}</SqBadge>
   )
   const condName = getCondName(conditional.name)
 
@@ -179,7 +181,7 @@ function ExclusiveConditionalSelector({
         selected={!state}
         disabled={!state}
       >
-        <span>Not Active</span>
+        <span>{t`conditional.notActive`}</span>
       </MenuItem>
       <Divider />
       {Object.entries(condStates).map(([stateKey, st]) => (

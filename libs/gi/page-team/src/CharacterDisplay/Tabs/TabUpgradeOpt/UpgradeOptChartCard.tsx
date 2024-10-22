@@ -84,6 +84,7 @@ function EquipButton({
   newArtId: string
   disabled: boolean
 }) {
+  const { t } = useTranslation('page_character_optimize')
   const database = useDatabase()
   const {
     loadoutDatum,
@@ -103,7 +104,9 @@ function EquipButton({
     <>
       <EquipBuildModal
         currentName={
-          buildType === 'real' ? database.builds.get(buildId)!.name : 'Equipped'
+          buildType === 'real'
+            ? database.builds.get(buildId)!.name
+            : t`upOptChart.equipped`
         }
         currentWeaponId={weapon?.id}
         currentArtifactIds={artifactids}
@@ -124,7 +127,11 @@ function EquipButton({
         }}
         onHide={onHide}
       />
-      <Tooltip title={<Typography>Equip</Typography>} placement="top" arrow>
+      <Tooltip
+        title={<Typography>{t`upOptChart.equipBtnTip`}</Typography>}
+        placement="top"
+        arrow
+      >
         <Box>
           <Button
             color="info"

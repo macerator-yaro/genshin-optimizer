@@ -193,6 +193,7 @@ function CharacterArea({
   teamId: string
   teamCharId: string
 }) {
+  const { t } = useTranslation(['ui', 'build'])
   const database = useDatabase()
   const character = useCharacter(characterKey)
   const { gender } = useDBMeta()
@@ -201,7 +202,10 @@ function CharacterArea({
 
   const { name } = useTeamChar(teamCharId)!
   const loadoutDatum = database.teams.getLoadoutDatum(teamId, teamCharId)!
-  const buildname = database.teams.getActiveBuildName(loadoutDatum)
+  const buildname = database.teams.getActiveBuildName(
+    loadoutDatum,
+    t`build:equippedBuild`
+  )
   const weapon = useMemo(
     () => database.teams.getLoadoutWeapon(loadoutDatum),
     [loadoutDatum, database]
@@ -334,7 +338,9 @@ function CharacterArea({
                     textShadow: '0 0 5px black',
                   }}
                 >
-                  C{character.constellation}
+                  {t('character.constShort', {
+                    count: character.constellation,
+                  })}
                 </Typography>
               )}
               {characterKey.startsWith('Traveler') && (
@@ -416,6 +422,7 @@ function CharacterArea({
   )
 }
 function WeaponCard({ weapon }: { weapon: ICachedWeapon }) {
+  const { t } = useTranslation('ui')
   return (
     <CardThemed
       bgt="neutral600"
@@ -447,7 +454,9 @@ function WeaponCard({ weapon }: { weapon: ICachedWeapon }) {
         </Typography>
 
         {weaponHasRefinement(weapon.key) && (
-          <Typography>R{weapon.refinement}</Typography>
+          <Typography>
+            {t('weapon.refineShort', { count: weapon.refinement })}
+          </Typography>
         )}
       </Box>
     </CardThemed>

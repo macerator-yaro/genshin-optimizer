@@ -38,6 +38,10 @@
       "upload": "Upload",
       "swap": "Swap"
     },
+    "confirm": {
+      "copy": "Copied database to clipboard.",
+      "delete": "Are you sure you want to delete \"{{name}}\"?"
+    },
     "currentDB": "Current Database"
   },
   "uploadCard": {

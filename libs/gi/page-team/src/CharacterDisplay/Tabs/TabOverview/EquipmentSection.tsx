@@ -153,8 +153,8 @@ function ArtifactSectionCard() {
   const buildEquip = buildId && buildType === 'real'
   const unequipArts = () => {
     const confirmMsg = buildEquip
-      ? 'Do you want to unequip all artifacts in this build?'
-      : 'Do you want to move all currently equipped artifacts to inventory?'
+      ? t`tabEquip.unequipConfirm.unequip`
+      : t`tabEquip.unequipConfirm.toInventory`
     if (!window.confirm(confirmMsg)) return
 
     if (buildEquip)

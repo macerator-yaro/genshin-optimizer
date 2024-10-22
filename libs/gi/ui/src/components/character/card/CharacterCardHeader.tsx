@@ -12,6 +12,7 @@ import { ascensionMaxLevel } from '@genshin-optimizer/gi/util'
 import { input } from '@genshin-optimizer/gi/wr'
 import { Box, CardActionArea, Chip, Typography } from '@mui/material'
 import { useCallback, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { DataContext, SillyContext } from '../../../context'
 import { iconAsset } from '../../../util/iconAsset'
 import type { RollColorKey } from '../../artifact'
@@ -98,6 +99,7 @@ export function CharacterCardHeaderContent({
   characterKey: CharacterKey
   tcOverride?: boolean
 }) {
+  const { t } = useTranslation('ui')
   const { gender } = useDBMeta()
   const { data } = useContext(DataContext)
   const characterEle = data.get(input.charEle).value as ElementKey
@@ -161,7 +163,9 @@ export function CharacterCardHeaderContent({
             }
             sx={{ color: tcOverride ? 'yellow ' : '#FFF' }}
           >
-            <strong>C{constellation}</strong>
+            <strong>
+              {t('character.constShort', { count: constellation })}
+            </strong>
           </SqBadge>
         </Typography>
       </Box>

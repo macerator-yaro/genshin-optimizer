@@ -253,14 +253,14 @@ function TeamEditor({
       </Alert>
       <Grid container sx={{ justifyContent: 'space-between' }} spacing={2}>
         <Grid item>
-          <Typography variant="h5">Selected Team Members</Typography>
+          <Typography variant="h5">{t`selectedMembers.title`}</Typography>
         </Grid>
         <Grid item>
           <Button
             startIcon={<Filter4Icon />}
             onClick={() => setShowMultiSelect(true)}
           >
-            Quick Select
+            {t`selectedMembers.selectBtn`}
           </Button>
         </Grid>
       </Grid>

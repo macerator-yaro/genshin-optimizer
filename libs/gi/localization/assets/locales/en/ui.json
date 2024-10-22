@@ -72,5 +72,36 @@
     "base_stat_mod": "Base Stat Modifications",
     "stamina_buffs": "Stamina Buffs",
     "misc": "Misc. Stats"
+  },
+  "displayUtil": {
+    "title": {
+      "basic": "Basic Stats",
+      "character": "Character",
+      "bounsStats": "Bonus Stats",
+      "custom": "Custom Multi Target",
+      "teamBuff": "Received Team Buffs",
+      "reaction": "Transformative Reactions"
+    },
+    "talent": {
+      "normal": "Normal Atk.",
+      "charged": "Charged Atk.",
+      "plunging": "Plunging Atk.",
+      "skill": "Ele. Skill",
+      "burst": "Ele. Burst",
+      "passive": "Passive",
+      "passive1": "1st Asc. Pass.",
+      "passive2": "4th Asc. Pass.",
+      "passive3": "Util. Pass.",
+      "constellation": "Const. {{count}}"
+    }
+  },
+  "conditional": {
+    "notActive": "Not Active"
+  },
+  "character": {
+    "constShort": "C{{count}}"
+  },
+  "weapon": {
+    "refineShort": "R{{count}}"
   }
 }

@@ -74,16 +74,16 @@ function DataCard({ index, readOnly }: { index: number; readOnly: boolean }) {
     () =>
       navigator.clipboard
         .writeText(JSON.stringify(database.exportGOOD()))
-        .then(() => alert('Copied database to clipboard.'))
+        .then(() => alert(t('DatabaseCard.confirm.copy')))
         .catch(console.error),
-    [database]
+    [database, t]
   )
 
   const onDelete = useCallback(() => {
-    if (!window.confirm(`Are you sure you want to delete "${name}"?`)) return
+    if (!window.confirm(t('DatabaseCard.confirm.delete', { name }))) return
     database.clear()
     database.toExtraLocalDB()
-  }, [database, name])
+  }, [database, name, t])
 
   const download = useCallback(() => {
     const date = new Date()

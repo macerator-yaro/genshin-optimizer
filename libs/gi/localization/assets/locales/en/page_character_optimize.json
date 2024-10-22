@@ -21,7 +21,9 @@
     "desc": "Using data from the builder, this will generate a graph to visualize Optimization Target vs. the selected Graph Target. The graph will show the maximum Optimization Target value per 0.01 of the selected Graph Target. Enabling this is optional, and doing so will slow down build times",
     "currentBuild": "Current Build",
     "highlightedBuilds": "Highlighted Builds",
-    "buildAlreadyInList": "Build is already in the list"
+    "buildAlreadyInList": "Build is already in the list",
+    "minData": "Min Data",
+    "allData": "All Data"
   },
   "levelFilter": "Artifact Level Filter",
   "upOptLevelFilter": "Artifact Upgrader Level Filter",
@@ -43,7 +45,8 @@
     "estimatedDist": "Estimated Distribution",
     "currentTarget": "Current Target",
     "currentLine": "Current Target Value",
-    "averageLine": "Average Increase"
+    "averageLine": "Average Increase",
+    "equipBtnTip": "Equip"
   },
   "excludeArt": {
     "title_exclude": "Excluded Artifacts",
@@ -87,7 +90,8 @@
   "allowPartial": "Allow Partial Builds (<5 artifacts)",
   "constraintFilter": {
     "title": "Minimum Build Constraints",
-    "tooltip": "Set certain minimum requirements that generated builds must conform to; e.g., have at least 140% Energy Recharge."
+    "tooltip": "Set certain minimum requirements that generated builds must conform to; e.g., have at least 140% Energy Recharge.",
+    "numInputPlace": "Stat Value"
   },
   "artSetConfig": {
     "title": "Artifact Set Configuration",
@@ -142,6 +146,13 @@
   "generateButton": {
     "cancel": "Cancel",
     "generateBuilds": "Generate Builds"
+  },
+  "buildAlert": {
+    "running": "Generating and testing <2/> build configurations against the criteria for <6/>.",
+    "finished": "Generated and tested <2/> Build configurations against the criteria for <6/>.",
+    "skipped": "(<1/> skipped)",
+    "elapsed": "Time elapsed: ",
+    "duration": "Total duration: "
   },
   "buildShowingNum": "Showing <2>{{count}}</2> build generated for <6/>.",
   "generatedOn": "Build generated on: ",
