@@ -17,7 +17,7 @@ import {
   transformativeReactions,
 } from './StatConstants'
 
-const baseMap = {
+export const baseMap = {
   hp: 'HP',
   hp_: 'HP',
   atk: 'ATK',

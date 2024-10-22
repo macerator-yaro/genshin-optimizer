@@ -23,6 +23,7 @@ import {
 } from '@mui/material'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useKeyMapTrans } from '../hooks/useKeyMapTrans'
 import { statPercent } from './util'
 
 export function StatEditorList({
@@ -41,6 +42,7 @@ export function StatEditorList({
   label?: string
 }) {
   const { t: tk } = useTranslation('statKey_gen')
+  const KeyMapTrans = useKeyMapTrans()
   const statOptions = useMemo(
     () =>
       statKeys
@@ -54,7 +56,7 @@ export function StatEditorList({
               ? `${tk(statKey as MainStatKey | SubstatKey)}${statPercent(
                   statKey as MainStatKey | SubstatKey
                 )}`
-              : KeyMap.getStr(statKey) ?? 'ERROR',
+              : KeyMapTrans.getStr(statKey) ?? 'ERROR',
             color: KeyMap.getVariant(statKey),
           })
         )
@@ -63,7 +65,7 @@ export function StatEditorList({
             allGroupKeys.indexOf(a.grouper as GroupKey) -
             allGroupKeys.indexOf(b.grouper as GroupKey)
         ),
-    [tk, statKeys]
+    [tk, statKeys, KeyMapTrans]
   )
 
   const getOptionDiabled = useCallback(

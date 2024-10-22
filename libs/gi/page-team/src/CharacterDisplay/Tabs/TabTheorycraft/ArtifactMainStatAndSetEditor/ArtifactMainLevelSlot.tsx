@@ -17,6 +17,7 @@ import {
   StatColoredWithUnit,
   StatWithUnit,
   artifactLevelVariant,
+  useKeyMapTrans,
 } from '@genshin-optimizer/gi/ui'
 import {
   artDisplayValue,
@@ -60,6 +61,7 @@ export function ArtifactMainLevelSlot({
     },
     [level, setSlot]
   )
+  const KeyMapTrans = useKeyMapTrans()
 
   return (
     <Box
@@ -82,7 +84,7 @@ export function ArtifactMainLevelSlot({
             gap={1}
           >
             <StatIcon statKey={keys[0]} iconProps={iconInlineProps} />{' '}
-            {KeyMap.getStr(keys[0])}
+            {KeyMapTrans.getStr(keys[0])}
           </Box>
         ) : (
           <DropdownButton

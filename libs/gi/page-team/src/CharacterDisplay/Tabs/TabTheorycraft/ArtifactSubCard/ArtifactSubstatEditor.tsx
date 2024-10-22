@@ -6,8 +6,8 @@ import {
 } from '@genshin-optimizer/common/ui'
 import { clamp, getUnitStr } from '@genshin-optimizer/common/util'
 import { artMaxLevel, type SubstatKey } from '@genshin-optimizer/gi/consts'
-import { KeyMap } from '@genshin-optimizer/gi/keymap'
 import { StatIcon } from '@genshin-optimizer/gi/svgicons'
+import { useKeyMapTrans } from '@genshin-optimizer/gi/ui'
 import { artDisplayValue, getSubstatValue } from '@genshin-optimizer/gi/util'
 import InfoIcon from '@mui/icons-material/Info'
 import { Box, Slider, Stack, Typography } from '@mui/material'
@@ -23,6 +23,7 @@ export function ArtifactSubstatEditor({
   disabled?: boolean
 }) {
   const { t } = useTranslation('page_character')
+  const KeyMapTrans = useKeyMapTrans()
   const {
     buildTc: {
       artifact: {
@@ -128,7 +129,7 @@ export function ArtifactSubstatEditor({
           }}
         >
           <StatIcon statKey={statKey} iconProps={{ fontSize: 'inherit' }} />
-          {KeyMap.getStr(statKey)}
+          {KeyMapTrans.getStr(statKey)}
           {getUnitStr(statKey)}
         </CardThemed>
         <NumberInputLazy
