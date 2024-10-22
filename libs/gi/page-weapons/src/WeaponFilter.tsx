@@ -284,18 +284,18 @@ function WeaponRedButtons({ weaponIds }: { weaponIds: string[] }) {
   }, [weaponIds, database])
 
   const deleteWeapons = () =>
-    window.confirm(`Are you sure you want to delete ${numDelete} weapons?`) &&
+    window.confirm(t('buttonConfirm.delete', { count: numDelete })) &&
     weaponIds.map((id) => {
       const weapon = database.weapons.get(id)
       if (!weapon?.lock && !weapon?.location) database.weapons.remove(id)
     })
 
   const lockWeapons = () =>
-    window.confirm(`Are you sure you want to lock ${numUnlock} weapons ?`) &&
+    window.confirm(t('buttonConfirm.lock', { count: numUnlock })) &&
     weaponIds.map((id) => database.weapons.set(id, { lock: true }))
 
   const unlockWeapons = () =>
-    window.confirm(`Are you sure you want to unlock ${numLock} weapons ?`) &&
+    window.confirm(t('buttonConfirm.unlock', { count: numLock })) &&
     weaponIds.map((id) => database.weapons.set(id, { lock: false }))
 
   return (

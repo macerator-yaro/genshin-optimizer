@@ -37,6 +37,7 @@ import {
   Typography,
 } from '@mui/material'
 import { useCallback, useContext, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { DataContext } from '../../context'
 import { DocumentDisplay } from '../DocumentDisplay'
 import { FieldDisplayList, NodeFieldDisplay } from '../FieldDisplay'
@@ -63,6 +64,7 @@ export function WeaponEditor({
   onClose,
   extraButtons,
 }: WeaponStatsEditorCardProps) {
+  const { t } = useTranslation('page_weapon')
   const { data } = useContext(DataContext)
 
   const database = useDatabase()
@@ -183,7 +185,7 @@ export function WeaponEditor({
                   <ButtonGroup>
                     <Button color="info" onClick={onShowModal}>
                       {(key && <WeaponName weaponKey={key} />) ||
-                        'Select a Weapon'}
+                        t`weaponEditor.select`}
                     </Button>
                     {key && weaponHasRefinement(key) && (
                       <RefinementDropdown
@@ -229,7 +231,7 @@ export function WeaponEditor({
                 <Box display="flex" flexDirection="column" gap={1}>
                   <CardThemed>
                     <CardHeader
-                      title={'Main Stats'}
+                      title={t`weaponEditor.mainStats`}
                       titleTypographyProps={{ variant: 'subtitle2' }}
                     />
                     <Divider />

@@ -667,7 +667,7 @@ export function ArtifactEditor({
                             {!!scanningNum && <CircularProgress size="1em" />}
                             <Typography sx={{ flexGrow: 1, ml: 1 }}>
                               <span>
-                                Screenshots in file-queue:
+                                {t`editor.fileQueue.msg`}
                                 <b>{queueTotal}</b>
                                 {/* {process.env.NODE_ENV === "development" && ` (Debug: Processed ${processed.length}/${maxProcessedCount}, Processing: ${outstanding.filter(entry => entry.result).length}/${maxProcessingCount}, Outstanding: ${outstanding.length})`} */}
                               </span>
@@ -678,7 +678,7 @@ export function ArtifactEditor({
                               color="error"
                               onClick={clearQueue}
                             >
-                              Clear file-queue
+                              {t`editor.fileQueue.clearBtn`}
                             </Button>
                           </Box>
                         </CardThemed>
@@ -862,13 +862,14 @@ export function ArtifactEditor({
   )
 }
 function DebugModal({ imgs }: { imgs: Record<string, string> }) {
+  const { t } = useTranslation('artifact')
   const [show, setshow] = useState(false)
   const onOpen = () => setshow(true)
   const onClose = () => setshow(false)
   return (
     <>
       <Button color="warning" onClick={onOpen}>
-        DEBUG
+        {t`editor.debugBtn`}
       </Button>
       <ModalWrapper open={show} onClose={onClose}>
         <CardThemed>

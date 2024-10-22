@@ -26,6 +26,7 @@ import {
   ListItem,
   Typography,
 } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 export function WeaponView({
   show,
@@ -38,6 +39,7 @@ export function WeaponView({
   weapon: IWeapon
   onClose?: () => void
 }) {
+  const { t } = useTranslation('ui')
   const { key, level = 0, refinement = 1, ascension = 0 } = weapon
   const weaponStat = key && getWeaponStat(key)
 
@@ -96,7 +98,8 @@ export function WeaponView({
                   )}
                 </Box>
                 <Typography>
-                  Lv. {getLevelString(level, ascension)} R{refinement}
+                  Lv. {getLevelString(level, ascension)}{' '}
+                  {t('weapon.refineShort', { count: refinement })}
                 </Typography>
                 <StarsDisplay stars={weaponStat.rarity} />
                 <Typography variant="subtitle1">

@@ -12,6 +12,11 @@
     "lockWeapons": "Lock Weapons",
     "unlockWeapons": "Unlock Weapons"
   },
+  "buttonConfirm": {
+    "delete": "Are you sure you want to delete {{count}} weapons?",
+    "lock": "Are you sure you want to lock {{count}} weapons?",
+    "unlock": "Are you sure you want to unlock {{count}} weapons?"
+  },
   "buttonHint": "Note: the red buttons above only apply to <1>filtered weapons<1>",
   "equippedWeapon": "All Equipped Weapons",
   "weaponInInv": "All Unequipped Weapons",
@@ -28,5 +33,9 @@
     "bow": "Bow",
     "catalyst": "Catalyst"
   },
-  "tcBuild": "TC Build"
+  "tcBuild": "TC Build",
+  "weaponEditor": {
+    "select": "Select a Weapon",
+    "mainStats": "Main Stats"
+  }
 }

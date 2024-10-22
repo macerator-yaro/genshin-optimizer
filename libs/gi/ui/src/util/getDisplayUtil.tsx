@@ -1,5 +1,4 @@
 import { ColorText, ImgIcon } from '@genshin-optimizer/common/ui'
-import { range } from '@genshin-optimizer/common/util'
 import { artifactDefIcon, weaponAsset } from '@genshin-optimizer/gi/assets'
 import type {
   ArtifactSetKey,
@@ -7,6 +6,7 @@ import type {
   WeaponKey,
 } from '@genshin-optimizer/gi/consts'
 import type { ArtCharDatabase } from '@genshin-optimizer/gi/db'
+import { Translate } from '@genshin-optimizer/gi/i18n'
 import { getCharSheet } from '@genshin-optimizer/gi/sheets'
 import type { CalcResult, UIData } from '@genshin-optimizer/gi/uidata'
 import type { DisplaySub } from '@genshin-optimizer/gi/wr'
@@ -20,19 +20,14 @@ const errHeader = {
   title: <ColorText color="warning">ERROR</ColorText>,
 }
 
-const talentMap = {
-  normal: 'Normal Atk.',
-  charged: 'Charged Atk.',
-  plunging: 'Plunging Atk.',
-  skill: 'Ele. Skill',
-  burst: 'Ele. Burst',
-  passive: 'Passive',
-  passive1: '1st Asc. Pass.',
-  passive2: '4th Asc. Pass.',
-  passive3: 'Util. Pass.',
-  ...Object.fromEntries(
-    range(1, 6).map((i) => [`constellation${i}`, `Const. ${i}`])
-  ),
+function SectionTrans({
+  key18,
+  values,
+}: {
+  key18: string
+  values?: Record<string, string | number>
+}) {
+  return <Translate ns={'ui'} key18={`displayUtil.${key18}`} values={values} />
 }
 
 export function getDisplayHeader(
@@ -45,16 +40,25 @@ export function getDisplayHeader(
   action?: ReactNode
 } {
   if (!sectionKey) return errHeader
-  if (sectionKey === 'basic') return { title: 'Basic Stats' }
-  if (sectionKey === 'character') return { title: 'Character' }
+  if (['basic', 'character', 'reaction'].includes(sectionKey))
+    return {
+      title: <SectionTrans key18={`title.${sectionKey}`} />,
+    }
   if (sectionKey === 'bounsStats')
-    return { title: 'Bonus Stats', icon: <BarChartIcon /> }
+    return {
+      title: <SectionTrans key18={`title.${sectionKey}`} />,
+      icon: <BarChartIcon />,
+    }
   if (sectionKey === 'custom')
-    return { title: 'Custom Multi Target', icon: <DashboardCustomizeIcon /> }
+    return {
+      title: <SectionTrans key18={`title.${sectionKey}`} />,
+      icon: <DashboardCustomizeIcon />,
+    }
   if (sectionKey === 'teamBuff')
-    return { title: 'Received Team Buffs', icon: <GroupsIcon /> }
-  else if (sectionKey === 'reaction')
-    return { title: 'Transformative Reactions' }
+    return {
+      title: <SectionTrans key18={`title.${sectionKey}`} />,
+      icon: <GroupsIcon />,
+    }
   else if (sectionKey.includes(':')) {
     const [namespace, key] = sectionKey.split(':')
     if (namespace === 'artifact') {
@@ -80,7 +84,12 @@ export function getDisplayHeader(
       : sectionKey
     const talent = sheet?.getTalentOfKey(talentKey as any)
     if (!talent) return errHeader
-    const actionText = talentMap[sectionKey as keyof typeof talentMap]
+
+    let actionText = <SectionTrans key18={`talent.${sectionKey}`} />
+    if (sectionKey.startsWith('constellation')) {
+      const [key, count] = sectionKey.split(/(\d)/)
+      actionText = <SectionTrans key18={`talent.${key}`} values={{ count }} />
+    }
     return {
       icon: <ImgIcon size={2} src={talent.img} />,
       title: talent.name,

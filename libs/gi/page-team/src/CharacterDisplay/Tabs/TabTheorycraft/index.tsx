@@ -351,7 +351,7 @@ export default function TabTheorycraft() {
                   color="error"
                   startIcon={<CloseIcon />}
                 >
-                  Cancel
+                  {t`tabTheorycraft.cancelDist`}
                 </Button>
               )}
             </Box>

@@ -169,7 +169,8 @@ export function ArtifactSubstatEditor({
         />
         <CardThemed sx={{ textAlign: 'center', p: 0.5, minWidth: '6em' }}>
           <ColorText color={invalid ? 'warning' : undefined}>
-            RV: <strong>{rv.toFixed()}%</strong>
+            {t`tabTheorycraft.substat.rv`}
+            <strong>{rv.toFixed()}%</strong>
             <BootstrapTooltip
               title={
                 <Typography>

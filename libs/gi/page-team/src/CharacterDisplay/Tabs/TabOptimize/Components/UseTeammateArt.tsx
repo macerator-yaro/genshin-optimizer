@@ -26,7 +26,7 @@ export const UseTeammateArt = memo(function UseTeammateArt({
   useTeammateBuild: boolean
   disabled?: boolean
 }) {
-  const { t } = useTranslation('page_character_optimize')
+  const { t } = useTranslation(['page_character_optimize', 'build'])
   const database = useDatabase()
   const {
     teamCharId,
@@ -78,7 +78,10 @@ export const UseTeammateArt = memo(function UseTeammateArt({
                           <CharIconSide characterKey={characterKey} />
                         )}
                         <Typography>
-                          {database.teams.getActiveBuildName(loadoutDatum)}
+                          {database.teams.getActiveBuildName(
+                            loadoutDatum,
+                            t`build:equippedBuild`
+                          )}
                         </Typography>
                       </Box>
                       {artifacts ? (

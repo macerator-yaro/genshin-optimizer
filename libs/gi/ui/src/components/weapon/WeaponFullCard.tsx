@@ -12,6 +12,7 @@ import { getLevelString } from '@genshin-optimizer/gi/util'
 import { dataObjForWeapon, uiInput as input } from '@genshin-optimizer/gi/wr'
 import { Box, Typography } from '@mui/material'
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { GetCalcDisplay, resolveInfo } from '../../util'
 import { WeaponName } from './WeaponTrans'
 export function WeaponFullCard({ weaponId }: { weaponId: string }) {
@@ -26,6 +27,7 @@ export function WeaponFullCardObj({
   weapon: IWeapon
   bgt?: CardBackgroundColor
 }) {
+  const { t } = useTranslation('ui')
   const weaponSheet = weapon?.key && getWeaponSheet(weapon.key)
   const UIData = useMemo(
     () =>
@@ -72,7 +74,9 @@ export function WeaponFullCardObj({
               Lv. {getLevelString(weapon.level, weapon.ascension)}
             </SqBadge>
             {weaponHasRefinement(weapon.key) && (
-              <SqBadge color="info">R{weapon.refinement}</SqBadge>
+              <SqBadge color="info">
+                {t('weapon.refineShort', { count: weapon.refinement })}
+              </SqBadge>
             )}
           </Typography>
           <Typography variant="subtitle1" sx={{ display: 'flex', gap: 1 }}>

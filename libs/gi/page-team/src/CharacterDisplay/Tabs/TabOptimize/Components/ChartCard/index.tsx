@@ -292,11 +292,11 @@ export default function ChartCard({
           <Collapse in={!!downloadData && showDownload}>
             <CardThemed sx={{ mb: 2 }}>
               <CardContent>
-                <Typography>Min Data</Typography>
+                <Typography>{t`tcGraph.minData`}</Typography>
                 <ReadOnlyTextArea
                   value={JSON.stringify(downloadData?.minimum)}
                 />
-                <Typography>All Data</Typography>
+                <Typography>{t`tcGraph.allData`}</Typography>
                 <ReadOnlyTextArea
                   value={JSON.stringify(downloadData?.allData)}
                 />

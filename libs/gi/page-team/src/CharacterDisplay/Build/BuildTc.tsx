@@ -84,6 +84,7 @@ export default function BuildTc({
   )
 }
 function TcEquip({ buildTcId }: { buildTcId: string }) {
+  const { t } = useTranslation(['build', 'ui'])
   const {
     weapon,
     artifact: {
@@ -104,20 +105,21 @@ function TcEquip({ buildTcId }: { buildTcId: string }) {
           <CardContent sx={{ display: 'flex', gap: 1 }}>
             <Chip
               size="small"
-              label={`Lv. ${getLevelString(
-                character.level,
-                character.ascension
-              )}`}
+              label={t('buildTcCard.overriden.lvl', {
+                value: getLevelString(character.level, character.ascension),
+              })}
               sx={{ color: 'yellow' }}
             />
 
             <Chip
               size="small"
-              label={`C${character.constellation}`}
+              label={t('ui:character.constShort', {
+                count: character.constellation,
+              })}
               sx={{ color: 'yellow' }}
             />
             {/* Can't display talents because that would require a calculation for talent boost due to constellations */}
-            <Typography color="yellow">Character Overriden</Typography>
+            <Typography color="yellow">{t`buildTcCard.overriden.msg`}</Typography>
           </CardContent>
         </CardThemed>
       )}

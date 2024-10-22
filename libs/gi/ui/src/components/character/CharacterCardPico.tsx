@@ -20,6 +20,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { Box, CardActionArea, Typography } from '@mui/material'
 import type { MouseEvent, ReactNode } from 'react'
 import { useCallback, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { SillyContext } from '../../context'
 import { iconAsset } from '../../util/iconAsset'
 
@@ -38,6 +39,7 @@ export function CharacterCardPico({
   hoverChild?: React.ReactNode
   hideFav?: boolean
 }) {
+  const { t } = useTranslation('ui')
   const character = useCharacter(characterKey)
   const { favorite } = useCharMeta(characterKey)
   const { gender } = useDBMeta()
@@ -134,7 +136,11 @@ export function CharacterCardPico({
               }}
             >
               <strong>
-                <SqBadge color="secondary">C{character.constellation}</SqBadge>
+                <SqBadge color="secondary">
+                  {t('character.constShort', {
+                    count: character.constellation,
+                  })}
+                </SqBadge>
               </strong>
             </Typography>
           )}

@@ -116,10 +116,12 @@ export function ArtifactSubCard({
               }}
             >
               <ColorText color={rolls > maxRolls ? 'error' : undefined}>
-                Rolls: <strong>{rolls.toFixed(0)}</strong>
+                {t`tabTheorycraft.totalRolls.rolls`}
+                <strong>{rolls.toFixed(0)}</strong>
               </ColorText>
               <ColorText color={rolls > maxRolls ? 'error' : undefined}>
-                RV: <strong>{rv.toFixed()}%</strong>
+                {t`tabTheorycraft.totalRolls.rv`}
+                <strong>{rv.toFixed()}%</strong>
               </ColorText>
             </CardThemed>
           </BootstrapTooltip>

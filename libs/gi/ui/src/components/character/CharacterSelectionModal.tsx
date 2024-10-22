@@ -691,6 +691,7 @@ function SelectionCard({
   characterKey: CharacterKey
   onClick: () => void
 }) {
+  const { t } = useTranslation('ui')
   const { gender } = useDBMeta()
   const character = useCharacter(characterKey)
   const { silly } = useContext(SillyContext)
@@ -773,7 +774,11 @@ function SelectionCard({
                   /{ascensionMaxLevel[ascension]}
                 </Typography>
               </Box>
-              <Typography variant="body2">C{constellation}</Typography>
+              <Typography variant="body2">
+                {t('character.constShort', {
+                  count: constellation,
+                })}
+              </Typography>
             </Box>
           ) : (
             <Typography component="span" variant="body2">

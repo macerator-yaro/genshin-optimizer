@@ -185,7 +185,7 @@ function OptimizationTargetEditorItem({
         sx={{ flexBasis: 150, flexGrow: 1, height: '100%' }}
         disabled={disabled}
         onChange={onChange}
-        placeholder="Stat Value"
+        placeholder={t`constraintFilter.numInputPlace`}
         size="small"
         inputProps={{ sx: { textAlign: 'right' } }}
         InputProps={{

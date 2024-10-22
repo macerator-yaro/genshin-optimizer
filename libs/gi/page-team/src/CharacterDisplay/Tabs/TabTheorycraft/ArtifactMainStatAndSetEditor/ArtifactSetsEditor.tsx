@@ -4,6 +4,7 @@ import { getArtSheet } from '@genshin-optimizer/gi/sheets'
 import { ArtifactSetAutocomplete } from '@genshin-optimizer/gi/ui'
 import { Stack } from '@mui/material'
 import { useCallback, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { BuildTcContext } from '../../../../BuildTcContext'
 import { ArtifactSetEditor } from './ArtifactSetEditor'
 
@@ -12,6 +13,7 @@ export function ArtifactSetsEditor({
 }: {
   disabled?: boolean
 }) {
+  const { t } = useTranslation('page_character')
   const {
     buildTc: {
       artifact: { sets: artSet },
@@ -46,7 +48,7 @@ export function ArtifactSetsEditor({
         <ArtifactSetAutocomplete
           artSetKey={''}
           setArtSetKey={setSet}
-          label={'New Artifact Set'}
+          label={t`tabTheorycraft.artifact.setSelectLabel`}
           getOptionDisabled={({ key }) =>
             Object.keys(artSet).includes(key as ArtifactSetKey) ||
             !key ||

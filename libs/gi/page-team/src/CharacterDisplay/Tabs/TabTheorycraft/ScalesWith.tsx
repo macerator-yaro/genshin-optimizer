@@ -13,7 +13,7 @@ export default function ScalesWith({
 }: {
   minOtherRolls: number
 }) {
-  const { t } = useTranslation('page_character')
+  const { t, i18n } = useTranslation('page_character')
   const { scalesWith } = useContext(OptTargetContext)
   return (
     !!scalesWith.size && (
@@ -21,7 +21,7 @@ export default function ScalesWith({
         <Trans t={t} i18nKey="tabTheorycraft.optAlert.scalesWith">
           The selected Optimization target and constraints scales with:{' '}
         </Trans>
-        {new Intl.ListFormat()
+        {new Intl.ListFormat(i18n.resolvedLanguage)
           .format(Array(scalesWith.size).fill('\u200B'))
           .split(/([^\u200B]+)/)
           .map((str, i) =>

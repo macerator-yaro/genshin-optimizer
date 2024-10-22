@@ -1,6 +1,7 @@
 import { timeStringMs } from '@genshin-optimizer/common/util'
 import { Alert, Grid, LinearProgress, styled, Typography } from '@mui/material'
-import type { ReactNode } from 'react'
+import { useMemo, type ReactNode } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 
 export const warningBuildNumber = 10000000
 export type BuildStatus = {
@@ -21,6 +22,42 @@ const BorderLinearProgress = styled(LinearProgress)(() => ({
   height: 10,
   borderRadius: 5,
 }))
+
+function TestingCount({
+  tested,
+  unskipped,
+  hasTotal,
+  generatingBuilds,
+}: {
+  tested: number
+  unskipped: number
+  hasTotal: boolean
+  generatingBuilds: boolean
+}) {
+  const unskippedString = useMemo(
+    () => (
+      <>
+        /<Monospace>{unskipped.toLocaleString()}</Monospace>
+      </>
+    ),
+    [unskipped]
+  )
+  return (
+    <>
+      <Monospace>{tested.toLocaleString()}</Monospace>
+      {generatingBuilds && hasTotal && unskippedString}
+    </>
+  )
+}
+
+function SkippedString({ skipped }: { skipped: number }) {
+  return <Monospace>{skipped.toLocaleString()}</Monospace>
+}
+
+function CharNameBold({ characterName }: { characterName: ReactNode }) {
+  return <b>{characterName}</b>
+}
+
 export default function BuildAlert({
   status: { type, tested, failed: _, skipped, total, startTime, finishTime },
   characterName,
@@ -28,17 +65,20 @@ export default function BuildAlert({
   status: BuildStatus
   characterName: ReactNode
 }) {
+  const { t } = useTranslation('page_character_optimize')
   const hasTotal = isFinite(total)
 
   const generatingBuilds = type !== 'inactive'
   const unskipped = total - skipped
 
-  const testedString = <Monospace>{tested.toLocaleString()}</Monospace>
-  const unskippedString = <Monospace>{unskipped.toLocaleString()}</Monospace>
-  const skippedText = !!skipped && (
-    <span>
-      (<b>{<Monospace>{skipped.toLocaleString()}</Monospace>}</b> skipped)
-    </span>
+  const skippedText = useMemo(
+    () =>
+      !!skipped && (
+        <Trans t={t} i18nKey={'buildAlert.skipped'}>
+          (<SkippedString skipped={skipped} /> skipped)
+        </Trans>
+      ),
+    [skipped, t]
   )
 
   const durationString = (
@@ -58,21 +98,50 @@ export default function BuildAlert({
     progress = (tested * 100) / unskipped
     title = (
       <Typography>
-        Generating and testing {testedString}
-        {hasTotal ? <>/{unskippedString}</> : undefined} build configurations
-        against the criteria for <b>{characterName}</b>. {skippedText}
+        <Trans t={t} i18nKey={'buildAlert.running'}>
+          Generating and testing{' '}
+          <TestingCount
+            tested={tested}
+            unskipped={unskipped}
+            hasTotal={hasTotal}
+            generatingBuilds={generatingBuilds}
+          />{' '}
+          build configurations against the criteria for{' '}
+          <CharNameBold characterName={characterName} />.
+        </Trans>{' '}
+        {skippedText}
       </Typography>
     )
-    subtitle = <Typography>Time elapsed: {durationString}</Typography>
+    subtitle = (
+      <Typography>
+        {t`buildAlert.elapsed`}
+        {durationString}
+      </Typography>
+    )
   } else if (tested + skipped) {
     progress = 100
     title = (
       <Typography>
-        Generated and tested {testedString} Build configurations against the
-        criteria for <b>{characterName}</b>. {skippedText}
+        <Trans t={t} i18nKey={'buildAlert.finished'}>
+          Generated and tested{' '}
+          <TestingCount
+            tested={tested}
+            unskipped={unskipped}
+            hasTotal={hasTotal}
+            generatingBuilds={generatingBuilds}
+          />{' '}
+          Build configurations against the criteria for{' '}
+          <CharNameBold characterName={characterName} />.
+        </Trans>{' '}
+        {skippedText}
       </Typography>
     )
-    subtitle = <Typography>Total duration: {durationString}</Typography>
+    subtitle = (
+      <Typography>
+        {t`buildAlert.duration`}
+        {durationString}
+      </Typography>
+    )
   } else {
     return null
   }

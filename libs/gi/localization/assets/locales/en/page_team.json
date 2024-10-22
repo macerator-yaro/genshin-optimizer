@@ -60,6 +60,10 @@
     "note": "Note: Genshin Impact halves resistance shred values below 0%. For the sake of calculations enter the RAW value and GO will do the rest. (e.g. 10% - 20% = -10%)",
     "immunity": "Immunity"
   },
+  "selectedMembers": {
+    "title": "Selected Team Members",
+    "selectBtn": "Quick Select"
+  },
   "teamComponents": {
     "teamBuffs": "Received Team Buffs",
     "tcBadge": "TC Build"

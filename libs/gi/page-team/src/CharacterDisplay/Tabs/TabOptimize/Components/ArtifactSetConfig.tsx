@@ -221,7 +221,9 @@ export default function ArtifactSetConfig({
                 ) : (
                   <BlockIcon {...iconInlineProps} />
                 )}{' '}
-                {allowRainbow2 ? t('artSetConfig.allowed') : 'Excluded'}
+                {allowRainbow2
+                  ? t('artSetConfig.allowed')
+                  : t('artSetConfig.excluded')}
               </SqBadge>
             </Typography>
             <Typography>
@@ -232,7 +234,9 @@ export default function ArtifactSetConfig({
                 ) : (
                   <BlockIcon {...iconInlineProps} />
                 )}{' '}
-                {allowRainbow4 ? t('artSetConfig.allowed') : 'Excluded'}
+                {allowRainbow4
+                  ? t('artSetConfig.allowed')
+                  : t('artSetConfig.excluded')}
               </SqBadge>
             </Typography>
           </Stack>

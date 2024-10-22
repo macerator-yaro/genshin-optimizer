@@ -26,6 +26,7 @@ import {
   Stack,
 } from '@mui/material'
 import { useCallback, useContext, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { BuildTcContext } from '../../../BuildTcContext'
 
 export function WeaponEditorCard({
@@ -35,6 +36,7 @@ export function WeaponEditorCard({
   weaponTypeKey: WeaponTypeKey
   disabled: boolean
 }) {
+  const { t } = useTranslation('page_character')
   const { buildTc, setBuildTc: setCharTC } = useContext(BuildTcContext)
   const setWeapon = useCallback(
     (weapon: Partial<BuildTc['weapon']>) => {
@@ -114,7 +116,7 @@ export function WeaponEditorCard({
         />
         <CardThemed>
           <CardHeader
-            title={'Main Stats'}
+            title={t`tabTheorycraft.weapon.mainStats`}
             titleTypographyProps={{ variant: 'subtitle2' }}
           />
           <Divider />

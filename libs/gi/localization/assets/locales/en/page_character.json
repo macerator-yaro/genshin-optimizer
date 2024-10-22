@@ -27,7 +27,11 @@
     "swapWeapon": "Swap Weapon",
     "swapArt": "Swap Artifact",
     "compare": "Compare with current Build",
-    "unequipArts": "Unequip all artifacts"
+    "unequipArts": "Unequip all artifacts",
+    "unequipConfirm": {
+      "unequip": "Do you want to unequip all artifacts in this build?",
+      "toInventory": "Do you want to move all currently equipped artifacts to inventory?"
+    }
   },
   "characterName": "Character Name",
   "teammate": "Teammate {{count}}",
@@ -59,7 +63,15 @@
   },
   "tabTheorycraft": {
     "distribute": "Distribute",
+    "cancelDist": "Cancel",
     "distInput": "Substats",
+    "weapon": {
+      "mainStats": "Main Stats"
+    },
+    "artifact": {
+      "setSelectLabel": "New Artifact Set",
+      "set": "{{value}}-set"
+    },
     "compareToggle": {
       "equipped": "Compare vs. equipped",
       "tc": "Show TC stats"
@@ -83,12 +95,17 @@
       "content": "Import this build into <2>gcsim</2> by copying the code below.",
       "copied": "Copied gcsim config to clipboard."
     },
+    "totalRolls": {
+      "rolls": "Rolls: ",
+      "rv": "RV: "
+    },
     "all": {
       "rolls": "All Rolls",
       "max": "All Max"
     },
     "substat": {
-      "max": "Max"
+      "max": "Max",
+      "rv": "RV: "
     },
     "substatType": {
       "min": "Min substat roll",
@@ -103,6 +120,13 @@
       "scalesWith": "The selected Optimization target and constraints scales with: ",
       "distribute": ". The solver will only distribute stats to these substats.",
       "feasibilty": "There may be additional leftover substats that should be distributed to non-scaling stats to ensure the solution is feasible."
+    },
+    "buildAlert": {
+      "running": "Generating and testing <2/> build configurations against the criteria for <6/>.",
+      "finished": "Generated and tested <2/> Build configurations against the criteria for <6/>.",
+      "skipped": "(<1/> skipped)",
+      "elapsed": "Time elapsed: ",
+      "duration": "Total duration: "
     }
   },
   "tabTeambuff": {

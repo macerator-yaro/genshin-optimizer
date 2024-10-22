@@ -1,4 +1,6 @@
 {
+  "equipped": "Equipped",
+  "equippedBuild": "Equipped Build",
   "buildDropdown": {
     "tcBadge": "TC",
     "equipped": "Equipped Build"
@@ -40,6 +42,10 @@
       "label": "Build Name",
       "placeholder": "Build Name",
       "desc": "Build Description"
+    },
+    "overriden": {
+      "lvl": "Lv. {{value}}",
+      "msg": "Character Overriden"
     }
   },
   "equipBuildModal": {

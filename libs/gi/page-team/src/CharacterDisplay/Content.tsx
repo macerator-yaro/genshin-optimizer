@@ -104,7 +104,7 @@ function TabNav({
   const { teamChar, loadoutDatum, teamCharId } =
     useContext(TeamCharacterContext)
   const database = useDatabase()
-  const { t } = useTranslation('page_team')
+  const { t } = useTranslation(['page_team', 'build'])
   const { gender } = useDBMeta()
   const elementKey = getCharEle(characterKey)
   const banner = characterAsset(characterKey, 'banner', gender)
@@ -189,7 +189,10 @@ function TabNav({
                   <strong>{teamChar.name}</strong>
                   <Divider orientation="vertical" variant="middle" flexItem />
                   <CheckroomIcon />
-                  {database.teams.getActiveBuildName(loadoutDatum)}
+                  {database.teams.getActiveBuildName(
+                    loadoutDatum,
+                    t`build:equippedBuild`
+                  )}
                 </Typography>
               </CardContent>
             </BootstrapTooltip>

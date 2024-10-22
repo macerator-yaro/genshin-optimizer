@@ -18,6 +18,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter'
 import { Box, CardActionArea, Chip, Typography } from '@mui/material'
 import type { ReactNode } from 'react'
 import { useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { GetCalcDisplay, resolveInfo } from '../../util'
 import { CharIconSide } from '../character'
 import { WeaponNameTooltip } from './WeaponNameTooltip'
@@ -76,6 +77,7 @@ export function WeaponCardNanoObj({
   onClick?: () => void
   showLocation?: boolean
 }) {
+  const { t } = useTranslation('ui')
   const database = useDatabase()
   const { refinement, location } = weapon
   const actionWrapperFunc = useCallback(
@@ -176,7 +178,11 @@ export function WeaponCardNanoObj({
               <Chip
                 size="small"
                 color="info"
-                label={<strong>R{refinement}</strong>}
+                label={
+                  <strong>
+                    {t('weapon.refineShort', { count: refinement })}
+                  </strong>
+                }
               />
             )}
           </Box>

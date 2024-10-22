@@ -37,6 +37,11 @@
     "delete": "Delete",
     "confirmDelete": "Are you sure you want to delete this artifact?",
     "uploadBtn": "Upload Screenshot (or Ctrl-V)",
+    "debugBtn": "DEBUG",
+    "fileQueue": {
+      "msg": "Screenshots in file-queue:",
+      "clearBtn": "Clear file-queue"
+    },
     "uploadExp": {
       "title": "How to Upload Screenshots for parsing",
       "alert": "NOTE: Artifact Scanning currently only works for <strong>ENGLISH</strong> artifacts.",
@@ -74,6 +79,12 @@
     "deleteArtifacts": "Delete Artifacts",
     "lockArtifacts": "Lock Artifacts",
     "unlockrtifacts": "Unlock Artifacts"
+  },
+  "buttonConfirm": {
+    "unequip": "Are you sure you want to unequip {{count}} artifacts currently equipped on characters?",
+    "delete": "Are you sure you want to delete {{count}} artifacts?",
+    "lock": "Are you sure you want to lock {{count}} artifacts?",
+    "unlock": "Are you sure you want to unlock {{count}} artifacts?"
   },
   "buttonHint": "Note: the red buttons above only apply to <1>filtered artifacts</1>",
   "tipsOfTheDay": [
