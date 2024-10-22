@@ -11,7 +11,6 @@ import {
   useOptConfig,
   useTeamChar,
 } from '@genshin-optimizer/gi/db-ui'
-import { KeyMap } from '@genshin-optimizer/gi/keymap'
 import AddIcon from '@mui/icons-material/Add'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import CheckroomIcon from '@mui/icons-material/Checkroom'
@@ -37,8 +36,9 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { OptimizationIcon } from '../../../consts'
-import { DocumentDisplay } from '../../DocumentDisplay'
+import { useKeyMapTrans } from '../../../hooks/useKeyMapTrans'
 import { BuildInfoAlert, TCBuildInfoAlert } from '../../build'
+import { DocumentDisplay } from '../../DocumentDisplay'
 import { LoadoutInfoAlert } from '../../loadout'
 import { TeamCard, TeamInfoAlert } from '../../team'
 import { BuildRealSimplified } from './BuildRealSimplified'
@@ -314,6 +314,7 @@ function BonusStatsCard({
   bonusStats: TeamCharacter['bonusStats']
 }) {
   const { t } = useTranslation('loadout')
+  const KeyMapTrans = useKeyMapTrans()
   return (
     <CardThemed bgt="light">
       <CardHeader
@@ -337,7 +338,7 @@ function BonusStatsCard({
         sections={[
           {
             fields: Object.entries(bonusStats).map(([key, value]) => ({
-              text: KeyMap.getStr(key) ?? key,
+              text: KeyMapTrans.get(key),
               value: value,
               unit: getUnitStr(key),
             })),

@@ -1,9 +1,10 @@
 import type { EleEnemyResKey, StatKey, Unit } from './KeyMap'
 import {
-  KeyMap,
   allEleDmgKeys,
   allEleEnemyResKeys,
   allEleResKeys,
+  baseMap,
+  KeyMap,
 } from './KeyMap'
 import type {
   AdditiveReactionsKey,
@@ -17,12 +18,13 @@ import {
   transformativeReactions,
 } from './StatConstants'
 export {
-  KeyMap,
   allEleDmgKeys,
   allEleEnemyResKeys,
   allEleResKeys,
+  baseMap,
   crittableTransformativeReactions,
   crystallizeLevelMultipliers,
+  KeyMap,
   transformativeReactionLevelMultipliers,
   transformativeReactions,
 }

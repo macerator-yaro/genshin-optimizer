@@ -13,10 +13,13 @@ import {
 import { allArtifactSlotKeys } from '@genshin-optimizer/gi/consts'
 import type { GeneratedBuild } from '@genshin-optimizer/gi/db'
 import { TeamCharacterContext, useOptConfig } from '@genshin-optimizer/gi/db-ui'
+import { KeyMap } from '@genshin-optimizer/gi/keymap'
+import type { KeyMapTrans } from '@genshin-optimizer/gi/ui'
 import {
   DataContext,
   GraphContext,
   resolveInfo,
+  useKeyMapTrans,
 } from '@genshin-optimizer/gi/ui'
 import type { Info, InfoExtra, NumNode } from '@genshin-optimizer/gi/wr'
 import { input } from '@genshin-optimizer/gi/wr'
@@ -370,11 +373,14 @@ function Chart({
     },
     [setSelectedPoint, displayData]
   )
+  const KeyMapTrans = useKeyMapTrans()
 
   const plotNodeInfo = plotNode.info && resolveInfo(plotNode.info)
   const valueNodeInfo = valueNode.info && resolveInfo(valueNode.info)
-  const xLabelValue = plotNodeInfo && getLabelFromNode(plotNodeInfo, t)
-  const yLabelValue = valueNodeInfo && getLabelFromNode(valueNodeInfo, t)
+  const xLabelValue =
+    plotNodeInfo && getLabelFromNode(plotNodeInfo, t, KeyMapTrans)
+  const yLabelValue =
+    valueNodeInfo && getLabelFromNode(valueNodeInfo, t, KeyMapTrans)
 
   return (
     <ResponsiveContainer width="100%" height={600}>
@@ -553,10 +559,16 @@ function getNearestPoint(
 }
 
 // Should work because character translation should already be loaded
-function getLabelFromNode(info: InfoExtra & Info, t: TFunction) {
+function getLabelFromNode(
+  info: InfoExtra & Info,
+  t: TFunction,
+  KeyMapTrans: KeyMapTrans
+) {
   const { name, textSuffix } = info
   return typeof name === 'string'
     ? name
+    : KeyMap.getStr(name?.props.key18)
+    ? KeyMapTrans.get(name?.props.key18)
     : `${t(`${name?.props.ns}:${name?.props.key18}`)}${
         textSuffix ? ` ${textSuffix}` : ''
       }`
