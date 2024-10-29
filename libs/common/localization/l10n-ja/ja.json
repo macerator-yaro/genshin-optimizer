@@ -246,10 +246,10 @@
         "clearBtn": "キューをクリア"
       },
       "uploadExp": {
-        "title": "How to Upload Screenshots for parsing",
-        "alert": "NOTE: Artifact Scanning currently only works for <strong>ENGLISH</strong> artifacts.",
-        "section1": "<0>Using screenshots can dramatically decrease the amount of time you manually input in stats on the Genshin Optimizer.</0><1>Where to snip the screenshot.</1><2>In game, Open your bag, and navigate to the artifacts tab. Select the artifact you want to scan with Genshin Optimizer. <2>Only artifact from this screen can be scanned.</2></2><3>Single artifact</3><4>To take a screenshot, in Windows, the shortcut is <2>Alt + Print Screen</2>. Once you selected the region, the image is automatically included in your clipboard.</4><5>Multiple artifacts</5><6>To take advantage of batch uploads, you can use a tool like <2>PicPick</2> to create a macro to easily to screenshot multiple artifacts at once.</6><7>What to include in the screenshot.</7><8>The full genshin window, or at least a region that covers the artifact card.</8>",
-        "section2": "<0>Adding Screenshot to Genshin Optimizer</0><1>At this point, you should have the artifact screenshot either saved to your harddrive, or in your clipboard.</1><2>You can click on the box next to \"Browse\" to browse the files in your harddrive for multiple screenshots.</2><3>For single screenshots from the snippets, just press <2>Ctrl + V</2> to paste from your clipboard.</3><4>You should be able to see a Preview of your artifact snippet, and after waiting a few seconds, the artifact set and the substats will be filled in in the <1>Artifact Editor</1>.</4><5>Finishing the Artifact</5><6>Unfortunately, computer vision is not 100%. There will always be cases where something is not scanned properly. You should always double check the scanned artifact values! Once the artifact has been filled, Click on <2>Add Artifact</2> to finish editing the artifact.</6>"
+        "title": "スクリーンショットをアップロードしてスキャンする方法",
+        "alert": "注意：聖遺物のスキャンは、ゲームの言語設定が<strong>英語</strong>の場合のみ対応しています。",
+        "section1": "<0>スクリーンショットを使用すると、 Genshin Optimizer でステータスを手動入力する時間が大幅に短縮できます。</0><1>スクリーンショットの撮影</1><2>ゲーム内でバッグを開き聖遺物のタブに移動し、スキャンしたい聖遺物を選択します。 <2>この画面に表示される聖遺物のみがスキャン可能です。</2></2><3>一つの聖遺物だけスキャン</3><4>スクリーンショットを撮るには、Windowsでは <2>Alt + Print Screen</2> を押すことで、アクティブウィンドウのスクリーンショットがクリップボードに保存されます。</4><5>複数の聖遺物をスキャン</5><6>一括でアップロードするには、 <2>PicPick</2> などのツールを使用してマクロを作成し、複数の聖遺物を簡単に撮影できます。</6><7>スクリーンショットに収めるべき範囲</7><8>ゲーム画面のウィンドウ全体、または少なくとも聖遺物カードが見える範囲をスクリーンショットに収めてください。</8>",
+        "section2": "<0>スクリーンショットを Genshin Optimizer に追加する</0><1>ここまでで、聖遺物のスクリーンショットがストレージまたはクリップボードに保存されている状態です。</1><2>「スクリーンショットで追加」ボタンをクリックして、ストレージに保存したスクリーンショットを複数選択できます。</2><3>または、クリップボードにスクリーンショットを保存している場合は <2>Ctrl + V</2> を押して貼り付けることができます。</3><4>聖遺物カードが切り抜かれたプレビューが表示され、数秒待つと聖遺物セットとサブステータスが<1>聖遺物エディター</1>に自動的に入力されます。</4><5>聖遺物を確認する</5><6>残念ながら、AIによるスキャンは100%完璧ではありません。 スキャンが正確でない場合もあるため、スキャンした聖遺物の数値を必ず確認してください。 聖遺物の編集が完了したら、<2>聖遺物を追加</2>をクリックして編集を終了します。</6>"
       }
     },
     "slot": "スロット",
@@ -284,10 +284,10 @@
       "unlockrtifacts": "聖遺物をアンロック"
     },
     "buttonConfirm": {
-      "unequip": "Are you sure you want to unequip {{count}} artifacts currently equipped on characters?",
-      "delete": "Are you sure you want to delete {{count}} artifacts?",
-      "lock": "Are you sure you want to lock {{count}} artifacts?",
-      "unlock": "Are you sure you want to unlock {{count}} artifacts?"
+      "unequip": "キャラクターに装備中の{{count}}個の聖遺物を外してもよろしいですか？",
+      "delete": "{{count}}個の聖遺物を削除してもよろしいですか？",
+      "lock": "{{count}}個の聖遺物をロックしてもよろしいですか？",
+      "unlock": "{{count}}個の聖遺物のロックを解除してもよろしいですか？"
     },
     "buttonHint": "注：上の赤いボタンはフィルターされた聖遺物のみに適用されます",
     "tipsOfTheDay": [
