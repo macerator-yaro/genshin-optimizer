@@ -524,9 +524,9 @@
     "c4ConnectedBelowEner": "ランプの精とリンクしているキャラクターの元素チャージは50%以下"
   },
   "char_Emilie": {
-    "a1_dmg_": "Lingering Fragrance DMG Bonus",
-    "c2Cond": "After hitting an enemy with <strong>Fragrance Extraction</strong>, <strong>Aromatic Explication</strong>, or Cleardew Cologne",
-    "c6Cond": "Under the effects of Abiding Fragrance"
+    "a1_dmg_": "清露コロンダメージボーナス",
+    "c2Cond": "<strong>フレグランス·アコード</strong>、<strong>アロマティック·アナライズ</strong>、または清露コロンが敵に命中した",
+    "c6Cond": "「留まる香り」効果が継続中"
   },
   "char_Eula": {
     "burstC": {
@@ -657,11 +657,11 @@
     "recast": "再び<strong>星辰帰位</strong>を発動"
   },
   "char_Kinich": {
-    "a4Cond": "Hunter's Experience stacks",
-    "c2Cond": "First Scalespiker Cannon fired",
-    "cannon_dmgInc": "Scalespiker Cannon DMG Inc.",
-    "cannon_critDMG_": "Scalespiker Cannon CRIT DMG",
-    "cannon_dmg_": "Scalespiker Cannon DMG Bonus"
+    "a4Cond": "「狩人の心得」の層数",
+    "c2Cond": "「夜魂の加護」状態での初回の廻狩貫鱗砲",
+    "cannon_dmgInc": "廻狩貫鱗砲ダメージアップ",
+    "cannon_critDMG_": "廻狩貫鱗砲会心ダメージ",
+    "cannon_dmg_": "廻狩貫鱗砲ダメージボーナス"
   },
   "char_Kirara": {
     "extraCardamom": "ニャルダモン追加",
@@ -725,16 +725,16 @@
     "uponSprint": "虚実流動発動後"
   },
   "char_Mualani": {
-    "biteDmg": "Sharky's Bite DMG",
-    "bite_dmgInc": "Sharky's Bite DMG Inc.",
+    "biteDmg": "サメサメバイトダメージ",
+    "bite_dmgInc": "サメサメバイトダメージアップ",
     "wave1": "サメサメバイト(1層)のダメージ",
     "wave2": "サメサメバイト(2層)のダメージ",
     "surgingDmg": "サメサメバイト·ビッグウェーブのダメージ",
-    "surging_dmgInc": "Sharky's Surging Bite DMG Inc.",
-    "surging_critRate_": "Sharky's Surging Bite Crit Rate",
-    "surging_critDMG_": "Sharky's Surging Bite Crit DMG",
-    "a4Cond": "Wavechaser's Exploits",
-    "c1FirstSurgingDmg": "First Sharky's Surging Bite DMG"
+    "surging_dmgInc": "サメサメバイト·ビッグウェーブダメージアップ",
+    "surging_critRate_": "サメサメバイト·ビッグウェーブ会心率",
+    "surging_critDMG_": "サメサメバイト·ビッグウェーブ会心ダメージ",
+    "a4Cond": "「ウェーブチェイサーの心得」の層数",
+    "c1FirstSurgingDmg": "夜魂の加護状態での初めてのサメサメバイト·ビッグウェーブのダメージ"
   },
   "char_Nahida": {
     "karmaDmg_": "滅浄三業のダメージボーナス",
@@ -2394,7 +2394,7 @@
     "inactive": "待機中の倍率"
   },
   "weapon_ChainBreaker": {
-    "condName": "Total number of Natlan or non-matching Elemental Type members"
+    "condName": "ナタ出身または装備者と元素タイプが異なるキャラクターの人数"
   },
   "weapon_CinnabarSpindle": {
     "name": "効果発動中"
@@ -2421,7 +2421,7 @@
     "condName": "現状態"
   },
   "weapon_FangOfTheMountainKing": {
-    "condName": "Canopy's Favor stacks"
+    "condName": "「懸木の祝福」の層数"
   },
   "weapon_FerrousShadow": {
     "condName": "HPノルマ達成",
@@ -2471,8 +2471,8 @@
     "party": "チームの元素エネルギー上限の合計"
   },
   "weapon_PeakPatrolSong": {
-    "odeCond": "Ode to Flowers Stacks",
-    "odeMaxedCond": "Reached Max Ode to Flowers Stacks"
+    "odeCond": "「栄華の歌」の層数",
+    "odeMaxedCond": "「栄華の歌」を2層まで重ねた"
   },
   "weapon_PolarStar": {
     "condName": "白夜極星"
@@ -2512,7 +2512,7 @@
     "takeMoreDmg": "受けたダメージごとに増加量"
   },
   "weapon_SilvershowerHeartstrings": {
-    "cond": "Blessing stacks"
+    "cond": "「療護」の層数"
   },
   "weapon_Slingshot": {
     "condName": "通常攻撃/重撃がヒット",
@@ -2530,7 +2530,7 @@
     "atkEffInc": "攻撃効果アップ"
   },
   "weapon_SurfsUp": {
-    "condName": "Scorching Summer stacks"
+    "condName": "「盛夏」の層数"
   },
   "weapon_TalkingStick": {
     "condName": {
