@@ -5,15 +5,15 @@
       "schema": "./src/executors/gen-locale/schema.json",
       "description": "gen-locale executor"
     },
-    "merge-ja": {
-      "implementation": "./src/executors/merge-ja/executor",
-      "schema": "./src/executors/merge-ja/schema.json",
-      "description": "merge-ja executor"
+    "merge-ns": {
+      "implementation": "./src/executors/merge-ns/executor",
+      "schema": "./src/executors/merge-ns/schema.json",
+      "description": "merge-ns executor"
     },
-    "add-terms": {
-      "implementation": "./src/executors/add-terms/executor",
-      "schema": "./src/executors/add-terms/schema.json",
-      "description": "add-terms executor"
+    "apply-transration": {
+      "implementation": "./src/executors/apply-transration/executor",
+      "schema": "./src/executors/apply-transration/schema.json",
+      "description": "apply-transration executor"
     },
     "split-ns": {
       "implementation": "./src/executors/split-ns/executor",

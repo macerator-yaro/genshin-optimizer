@@ -1,1 +1,110 @@
-{}
+[
+  {
+    "type": "add-terms",
+    "date": "2024/10/27 6:31:13",
+    "removed": {
+      "page_team": {
+        "selectedTeam": {
+          "title": "Selected Team Members",
+          "button": "Quick Select"
+        }
+      },
+      "ui": {
+        "displayUtil": {
+          "normal": "通常攻撃",
+          "charged": "重撃",
+          "plunging": "落下攻撃",
+          "skill": "元素スキル",
+          "burst": "元素爆発",
+          "passive": "パッシブ",
+          "passive1": "突破段階1",
+          "passive2": "突破段階4",
+          "passive3": "固有天賦",
+          "constellation1": "命ノ星座1",
+          "constellation2": "命ノ星座2",
+          "constellation3": "命ノ星座3",
+          "constellation4": "命ノ星座4",
+          "constellation5": "命ノ星座5",
+          "constellation6": "命ノ星座6",
+          "basic": "基本ステータス",
+          "character": "キャラクター",
+          "bounsStats": "ボーナスステータス",
+          "custom": "攻撃パターン",
+          "teamBuff": "受けたチームバフ",
+          "reaction": "転化反応"
+        }
+      }
+    }
+  },
+  {
+    "type": "merge-ja",
+    "date": "2024/10/12 13:35:28",
+    "overwrited": {
+      "page_character": {
+        "tabTheorycraft": {
+          "optAlert": {
+            "scalesWith": "最適化したい項目およびパラメータの最低要求に関わるステータス： "
+          },
+          "buildAlert": {
+            "running": "Generating and testing <strong>{{testNum}}</strong>{{div}}<strong>{{unskipNum}}</strong> build configurations against the criteria for <b><charName/></b>.",
+            "finished": "Generated and tested <strong>{{testNum}}</strong> Build configurations against the criteria for <b><charName/></b>.",
+            "skipped": "<span>(<strong>{{skipNum}}</strong> skipped)</span>",
+            "elapsed": "Time elapsed: ",
+            "duration": "Total duration: "
+          }
+        }
+      },
+      "page_character_optimize": {
+        "constraintFilter": {
+          "tooltip": "生成する装備が満たすべき最低限のパラメータ要求を設定します。 例： 元素チャージ効率140%以上 など"
+        },
+        "buildDropdownDesc": "生成する装備の数を減らすと、候補が多い場合の計算時間を短縮できます。",
+        "optAlert": {
+          "scalesWith": "最適化したい項目およびパラメータの最低要求に関わるステータス： "
+        },
+        "buildAlert": {
+          "running": "<b><charName/></b>の最適化設定に基づき <strong>{{testNum}}</strong>{{div}}<strong>{{unskipNum}}</strong> パターンの装備を生成/比較しています。",
+          "finished": "<b><charName/></b>の最適化設定に基づき <strong>{{testNum}}</strong> パターンの装備を生成/比較しました。",
+          "skipped": "<span>（<strong>{{skipNum}}</strong> パターンをスキップ）</span>"
+        }
+      }
+    }
+  },
+  {
+    "type": "merge-ja",
+    "date": "2024/10/11 11:29:23",
+    "overwrited": {
+      "page_character": {
+        "tabTheorycraft": {
+          "optAlert": {
+            "scalesWith": "ステータスの下限値を満たしつつ、最適化したい項目を伸ばすためのステータス： "
+          }
+        }
+      },
+      "page_character_optimize": {
+        "optAlert": {
+          "scalesWith": "The selected Optimization target and constraints scales with: "
+        }
+      }
+    }
+  },
+  {
+    "type": "merge-ja",
+    "date": "2024/10/7 4:14:47",
+    "overwrited": {
+      "sheet": {
+        "talents": {
+          "passive1": "固有天賦1",
+          "passive2": "固有天賦2",
+          "passive3": "固有天賦3",
+          "constellation1": "1凸",
+          "constellation2": "2凸",
+          "constellation3": "3凸",
+          "constellation4": "4凸",
+          "constellation5": "5凸",
+          "constellation6": "6凸"
+        }
+      }
+    }
+  }
+]

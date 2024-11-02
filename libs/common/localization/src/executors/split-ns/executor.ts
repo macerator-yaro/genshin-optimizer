@@ -2,88 +2,55 @@ import { dumpFile } from '@genshin-optimizer/common/pipeline'
 import { existsSync, readFileSync, readdirSync } from 'fs'
 import type { ProjNames, Translation } from '../myDef'
 import {
-  $l10n,
   $locales,
-  isSameTrans,
-  isTrans,
+  isEqualTranslation,
+  isTranslation,
   readWorkspaceJson,
 } from '../myDef'
 import type { GenLocaleExecutorSchema } from './schema'
 
 export default async function runExecutor(_options: GenLocaleExecutorSchema) {
-  const $ja = (cat: ProjNames) => `${$locales(cat)}/ja`
-  const jaJson = applyChanges()
+  const { ja: jaJson } = readWorkspaceJson()
   saveFiles(jaJson)
 
   return { success: true }
+}
 
-  function saveFiles(jaJson: Translation) {
-    const outputLog: string[] = []
+function saveFiles(jaJson: Translation) {
+  const outputLog: string[] = []
 
-    const jaJsonPath = `${$l10n('common')}/ja.json`
-    const jaJsonRaw = readFileSync(jaJsonPath).toString()
-    const existJaJson = JSON.parse(jaJsonRaw) as Translation
+  Object.keys(jaJson).forEach((ns) => {
+    const { dir, fn } = getSaveDirAndFileName(ns)
+    const outputPath = `${dir}/${fn}`
+    const fileList = existsSync(dir) ? readdirSync(dir) : []
+    // 同名のファイルが存在する場合
+    if (fileList.includes(fn)) {
+      const existingRaw = readFileSync(outputPath).toString()
+      const existingFile = JSON.parse(existingRaw) as Translation
 
-    if (!isSameTrans(jaJson, existJaJson)) {
-      outputLog.push(jaJsonPath)
-      dumpFile(jaJsonPath, jaJson)
-    }
-
-    Object.keys(jaJson).forEach((fn) => {
-      const { dir, fName } = getDirAndFn(fn)
-      const outputPath = `${dir}/${fName}.json`
-      const fileList = existsSync(dir) ? readdirSync(dir) : []
-      // 同名のファイルが存在する場合
-      if (fileList.includes(fName + '.json')) {
-        const raw = readFileSync(outputPath).toString()
-        const exist = JSON.parse(raw) as Translation
-
-        if (isTrans(jaJson[fn]) && !isSameTrans(exist, jaJson[fn])) {
-          dumpFile(outputPath, jaJson[fn])
-          outputLog.push(outputPath)
-        }
-      }
-      // 同名のファイルが存在しない場合
-      else {
-        dumpFile(outputPath, jaJson[fn])
+      if (
+        isTranslation(jaJson[ns]) &&
+        !isEqualTranslation(existingFile, jaJson[ns])
+      ) {
+        dumpFile(outputPath, jaJson[ns])
         outputLog.push(outputPath)
       }
-    })
-    console.log(
-      `outputs:${outputLog.length ? '\n' + outputLog.join('\n') : ' none'}`
-    )
-  }
-
-  function applyChanges() {
-    const { enJson, jaJson, sameJson } = readWorkspaceJson()
-    compare(enJson, jaJson, sameJson)
-    return jaJson
-
-    function compare(
-      enJson: Translation,
-      jaJson: Translation,
-      sameJson: Translation
-    ) {
-      Object.keys(sameJson).forEach((key) => {
-        if (
-          isTrans(enJson[key]) &&
-          isTrans(jaJson[key]) &&
-          isTrans(sameJson[key])
-        ) {
-          compare(enJson[key], jaJson[key], sameJson[key])
-        } else {
-          if (sameJson[key] !== enJson[key]) jaJson[key] = sameJson[key]
-        }
-      })
     }
-  }
-
-  function getDirAndFn(fn: string) {
-    let cat: ProjNames = 'gi'
-    const splitArr = fn.split(/(common_)/)
-    if (splitArr[0] === '') {
-      if (splitArr[1] === 'common_') cat = 'common'
+    // 同名のファイルが存在しない場合
+    else {
+      dumpFile(outputPath, jaJson[ns])
+      outputLog.push(outputPath)
     }
-    return { dir: $ja(cat), fName: splitArr[splitArr.length - 1] }
+  })
+  console.log(
+    `outputs: ${outputLog.length ? `\n${outputLog.join('\n')}` : 'none'}`
+  )
+}
+
+function getSaveDirAndFileName(ns: string) {
+  const cat: ProjNames = ns.startsWith('common_') ? 'common' : 'gi'
+  return {
+    dir: `${$locales(cat)}/ja`,
+    fn: `${ns.replace(/^common_/, '')}.json`,
   }
 }

@@ -19,8 +19,8 @@
         "{workspaceRoot}/libs/sr/localization/assets/locales/en/**/*"
       ]
     },
-    "merge-ja": {
-      "executor": "@genshin-optimizer/common/localization:merge-ja",
+    "merge-ns": {
+      "executor": "@genshin-optimizer/common/localization:merge-ns",
       "outputs": [
         "{projectRoot}/Translated",
         "{workspaceRoot}/libs/sr/localization/assets/locales"
@@ -31,8 +31,8 @@
         "{workspaceRoot}/libs/sr/localization/assets/locales/en/**/*"
       ]
     },
-    "add-terms": {
-      "executor": "@genshin-optimizer/common/localization:add-terms",
+    "apply-transration": {
+      "executor": "@genshin-optimizer/common/localization:apply-transration",
       "outputs": [
         "{projectRoot}/Translated",
         "{workspaceRoot}/libs/sr/localization/assets/locales"
