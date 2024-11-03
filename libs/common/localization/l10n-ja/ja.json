@@ -734,7 +734,7 @@
     "surging_critRate_": "サメサメバイト·ビッグウェーブ会心率",
     "surging_critDMG_": "サメサメバイト·ビッグウェーブ会心ダメージ",
     "a4Cond": "「ウェーブチェイサーの心得」の層数",
-    "c1FirstSurgingDmg": "夜魂の加護状態での初めてのサメサメバイト·ビッグウェーブのダメージ"
+    "c1FirstSurgingDmg": "初めてのサメサメバイト·ビッグウェーブのダメージ"
   },
   "char_Nahida": {
     "karmaDmg_": "滅浄三業のダメージボーナス",
@@ -1575,9 +1575,9 @@
       "equipped": "ゲーム内装備",
       "current": "現在の装備",
       "incLabel": "基準値からの上昇量",
-      "probLabel": "更新確率",
-      "const": "パラメータの下限値込み",
-      "exactDist": "確率分布（{{const}}）",
+      "probLabel": "確率",
+      "const": "(パラメータの下限値込み)",
+      "exactDist": "確率分布{{const}}",
       "estimatedDist": "区間ごとの分布",
       "currentTarget": "現在の装備",
       "currentLine": "現装備の基準値",
